@@ -1,0 +1,229 @@
+Passage,Version,Question,Answer,Response Time
+02,B,10,Joshua.,7.618762969970703
+02,B,11,In the backyard of the house next door.,4.845047235488892
+02,B,12,The family had a treasure hunt every year.,5.730532646179199
+02,C,10,Joshua.,4.7880871295928955
+02,C,11,In the backyard of the house next door.,5.405730247497559
+02,C,12,The family had a treasure hunt every year.,5.259220600128174
+02,D,10,Joshua.,5.507542610168457
+02,D,11,In the backyard of the house next door.,5.832996368408203
+02,D,12,The family had a treasure hunt every year.,4.800999164581299
+02,A,10,Joshua.,5.268294811248779
+02,A,11,In the backyard of the house next door.,5.358558416366577
+02,A,12,The family had a treasure hunt every year.,4.850782871246338
+03,B,12,He was in the kitchen preparing the salad.,6.4119861125946045
+03,B,11,Yes.,4.690298795700073
+03,B,10,The metal spoon.,5.163690567016602
+03,D,12,He was in the kitchen preparing the salad.,5.666435241699219
+03,D,11,Yes.,4.767512321472168
+03,D,10,The metal tongs.,5.243160247802734
+03,C,12,He was in the kitchen preparing the salad.,5.118872404098511
+03,C,11,Yes.,4.741216421127319
+03,C,10,The metal tongs.,5.65444540977478
+03,A,12,He was in the kitchen preparing the salad.,4.724590063095093
+03,A,11,Yes.,4.733499526977539
+03,A,10,The metal spoon.,6.533674955368042
+16,C,12,Yes.,4.6262712478637695
+16,C,10,A glossy pamphlet.,5.376183271408081
+16,C,11,Keisha had to wait for the bus.,4.971545934677124
+16,B,12,Yes.,4.620709657669067
+16,B,10,A glossy magazine.,5.79694676399231
+16,B,11,Keisha had to wait for the bus.,4.69277286529541
+16,A,12,Yes.,4.625469923019409
+16,A,10,A glossy magazine.,5.8474297523498535
+16,A,11,Keisha had to wait for the bus.,5.477504253387451
+16,D,12,Yes.,5.264512300491333
+16,D,10,A glossy pamphlet.,5.033296346664429
+16,D,11,Keisha had to wait for the bus.,4.739631652832031
+17,C,12,Ryan searched for his kit for about an hour.,5.738808631896973
+17,C,11,He had left it at home.,4.689219236373901
+17,C,10,The weapon was a .,4.718524694442749
+17,B,12,Ryan searched for his kit for about an hour.,5.788757085800171
+17,B,11,He had left it at home.,4.79996657371521
+17,B,10,The knife.,5.216233968734741
+17,D,12,Ryan searched for his kit for about an hour.,5.299393653869629
+17,D,11,He had left it at home.,4.692139387130737
+17,D,10,The bloody weapon was a knife.,5.675044298171997
+17,A,12,Ryan searched for his kit for about an hour.,4.628662109375
+17,A,11,He had left it at home.,4.62314248085022
+17,A,10,The knife.,5.659725904464722
+05,A,12,The exhibit was located about a mile away from the zoo entrance.,4.833565711975098
+05,A,10,The lion.,5.991254806518555
+05,A,11,The girls arrived at the zoo at 8:30 am.,5.034892320632935
+05,B,12,The exhibit was located about a mile away from the zoo entrance.,4.532424211502075
+05,B,10,The lion.,5.6540443897247314
+05,B,11,The girls arrived at the zoo at 8:30 a.,4.581656217575073
+05,C,12,The exhibit was located about a mile away from the zoo entrance.,4.566704034805298
+05,C,10,The girls wanted to see the cheetah.,5.7237794399261475
+05,C,11,The girls arrived at the zoo at 8:30 a.,4.64609432220459
+08,A,10,White roses.,4.78066611289978
+08,A,12,About an hour.,5.4637720584869385
+08,A,11,It was a few miles away.,4.608459711074829
+08,B,10,White roses.,5.1361143589019775
+08,B,12,About an hour.,4.995140314102173
+08,B,11,It was a few miles away.,4.642099618911743
+08,C,10,A bouquet of white orchids.,5.610015153884888
+08,C,12,About an hour.,4.6515936851501465
+08,C,11,It was a few miles away.,4.594666481018066
+08,D,10,A bouquet of white orchids.,5.698625802993774
+08,D,12,About an hour.,4.6313371658325195
+08,D,11,It was a few miles away.,4.915099143981934
+10,A,10,Her cancer was advanced.,5.198990106582642
+10,A,11,The gift store was located in the lobby of the hospital.,4.689462661743164
+10,A,12,He went to the gift store.,5.400182723999023
+10,B,10,Her daughter was battling cancer.,4.667118549346924
+10,B,11,The gift store was located in the lobby of the hospital.,4.625184535980225
+10,B,12,He went to the gift store.,5.681005239486694
+10,C,10,Smallpox.,4.627208948135376
+10,C,11,The gift store was located in the basement of the hospital.,4.7088682651519775
+10,C,12,He went to the gift store.,5.422333717346191
+10,D,10,Smallpox.,4.576498985290527
+10,D,11,The gift store was located in the basement of the hospital.,5.207895278930664
+10,D,12,He went to the gift store.,5.070896863937378
+19,A,12,No.,4.644644737243652
+19,A,11,She traveled a total of about a mile.,5.750895738601685
+19,A,10,The robbers scooped the glitzy diamonds into black velvet bags.,4.662371397018433
+19,B,12,No.,4.62321925163269
+19,B,11,She traveled a total of about a mile.,5.78248143196106
+19,B,10,The robbers scooped the glitzy diamonds into black velvet bags.,4.641960620880127
+19,C,12,No.,4.903946161270142
+19,C,11,She traveled a total of about a mile.,5.359959602355957
+19,C,10,The robbers scooped the glitzy opals into black velvet bags.,4.654580116271973
+19,D,12,No.,5.393702268600464
+19,D,11,She traveled a total of about a mile.,4.886573314666748
+19,D,10,The robbers scooped the glitzy opals into black velvet bags.,4.641244888305664
+20,B,12,The warrior had been waiting for this moment for a long time.,6.5749499797821045
+20,B,10,His cotton shirt.,5.240501403808594
+20,B,11,He ate at the inn.,4.690871000289917
+20,A,12,The warrior had been waiting for this moment for a long time.,5.720722913742065
+20,A,10,His cotton shirt.,4.633137941360474
+20,A,11,He ate at the inn.,4.657849550247192
+20,D,12,The warrior had been waiting for this moment for a long time.,5.657589435577393
+20,D,10,His cotton scarf.,4.709073781967163
+20,D,11,He ate at the inn.,5.1068480014801025
+20,C,12,The warrior had been waiting for this moment for a long time.,5.2037177085876465
+20,C,10,His cotton scarf.,4.623499631881714
+20,C,11,He ate at the inn.,5.583430528640747
+14,D,10,A hamster.,4.681033611297607
+14,D,11,Jenna was walking to the veterinary clinic when she saw a fluffy animal running towards her.,4.706083297729492
+14,D,12,About an hour.,5.8195412158966064
+14,A,10,"A black and white cat named ""Buddy"".",4.637571096420288
+14,A,11,Jenna was walking to the veterinary clinic when she saw a fluffy animal coming out of the back door.,4.7479088306427
+14,A,12,About an hour.,5.575723171234131
+14,C,10,A hamster.,4.68443751335144
+14,C,11,Jenna was walking to the veterinary clinic when she saw a fluffy animal running towards her.,5.321070194244385
+14,C,12,About an hour.,5.376378297805786
+14,B,10,A Chihuahua.,4.783801555633545
+14,B,11,Jenna was walking to the veterinary clinic when she saw a fluffy animal running towards her.,5.729655504226685
+14,B,12,About an hour.,4.671885013580322
+06,C,11,He found it in the back of his car.,4.665425777435303
+06,C,12,He walked past the control tower.,5.849798202514648
+06,C,10,The metal stool.,4.664129018783569
+06,D,11,He found it in the back of his car.,4.974900960922241
+06,D,12,He walked past the control tower.,5.3342530727386475
+06,D,10,The metal stool.,4.656692028045654
+06,A,11,He found it in the back of his car.,5.406507730484009
+06,A,12,He walked past the control tower.,4.793967247009277
+06,A,10,The metal chair.,4.67101526260376
+06,B,11,He found it in the back of his car.,5.795631408691406
+06,B,12,He walked past the control tower.,4.694705009460449
+06,B,10,The metal chair.,4.804607629776001
+09,A,10,The rusty hammer.,5.5173869132995605
+09,A,12,No.,4.786265850067139
+09,A,11,The criminal was hiding in the basement.,5.307790994644165
+09,C,10,The rusty chisel.,4.97868275642395
+09,C,12,No.,4.657923936843872
+09,C,11,The criminal was hiding in the basement.,5.810139894485474
+09,D,10,The rusty chisel.,4.705781698226929
+09,D,12,No.,4.747210502624512
+09,D,11,The criminal was hiding in the basement.,7.01698112487793
+09,B,10,The rusty tool.,4.703171968460083
+09,B,12,No.,4.740073204040527
+09,B,11,The criminal was hiding in the basement.,5.88558030128479
+05,D,12,The exhibit was located about a mile away from the zoo entrance.,4.650561571121216
+05,D,10,The girls wanted to see the cheetah.,5.104872226715088
+05,D,11,The girls arrived at the zoo at 8:30 a.,5.049737930297852
+07,A,10,Jason was interested in becoming a wealthy lawyer.,4.617011070251465
+07,A,11,Jason found his resumes in less than an hour.,5.579665184020996
+07,A,12,He looked in his bag.,4.710950136184692
+07,B,10,Jason was interested in becoming a wealthy lawyer.,4.633686065673828
+07,B,11,Jason found his resumes in less than an hour.,5.71750283241272
+07,B,12,He looked in his bag.,4.606335878372192
+07,C,10,Jason was interested in becoming a banker.,4.766085863113403
+07,C,11,Jason found his resumes in less than an hour.,5.5353171825408936
+07,C,12,He looked in his bag.,4.620213985443115
+07,D,10,Jason was interested in becoming a banker.,5.260656118392944
+07,D,11,Jason found his resumes in less than an hour.,4.932000160217285
+07,D,12,He looked in his bag.,4.6082446575164795
+13,A,12,Joseph's search for a box that would suit their purposes lasted for about two hours.,5.785592794418335
+13,A,11,He looked in the garage.,4.681707143783569
+13,A,10,The wooden table.,4.778341770172119
+13,B,12,Joseph's search was over in about an hour.,5.656012296676636
+13,B,11,He looked in the garage.,4.706536769866943
+13,B,10,The wooden table.,5.26183295249939
+13,D,12,Joseph's search for a box that would suit their purposes lasted for about two hours.,5.036273241043091
+13,D,11,He looked in the garage.,4.643646478652954
+13,D,10,The wooden futon.,5.740973949432373
+13,C,12,Joseph's search was over in about an hour.,4.770925045013428
+13,C,11,He looked in the garage.,4.690206050872803
+13,C,10,The futon.,5.675117015838623
+15,B,11,"Yes, she arrived in a timely manner.",4.59465217590332
+15,B,10,Sweet apple.,5.033403635025024
+15,B,12,Jessie was in the middle of the fairgrounds.,5.0633909702301025
+15,A,11,"Yes, she arrived in a timely manner.",4.653334617614746
+15,A,10,Sweet apple.,5.732864141464233
+15,A,12,Jessie was in the middle of the fairgrounds.,4.641516208648682
+15,C,11,"Yes, she arrived in a timely manner.",4.727344274520874
+15,C,10,The judges had already sampled the mangos at the state fair yesterday and would meet with everyone today to share the results.,5.749800443649292
+15,C,12,Jessie was in the middle of the fairgrounds.,4.632032871246338
+15,D,11,"Yes, she arrived in a timely manner.",4.832931995391846
+15,D,10,The judges had already sampled the mangos at the state fair yesterday and would meet with everyone today to share the results.,5.181344985961914
+15,D,12,Jessie was in the middle of the fairgrounds.,4.627093076705933
+18,B,12,The hair salon.,5.583354949951172
+18,B,10,A shirt.,5.49992823600769
+18,B,11,Sarah had about an hour before she needed to be back home for dinner.,4.813046932220459
+18,A,12,The hair salon.,5.60539698600769
+18,A,10,A shirt.,4.685466289520264
+18,A,11,Sarah had about an hour before she needed to be back home for dinner.,5.177249193191528
+18,C,12,The hair salon.,5.114893436431885
+18,C,10,A skirt.,4.5865819454193115
+18,C,11,Sarah had about an hour before she needed to be back home for dinner.,5.675337553024292
+18,D,12,The hair salon.,4.596755027770996
+18,D,10,A skirt.,4.618612766265869
+18,D,11,Sarah had about an hour before she needed to be back home for dinner.,5.655378341674805
+12,A,10,The vintage sailboat.,4.589014291763306
+12,A,12,They waited about fifteen minutes before they were seated.,4.6935975551605225
+12,A,11,It was in the middle of nowhere.,5.42321515083313
+12,B,10,The vintage sailboat.,4.583410978317261
+12,B,12,They waited about fifteen minutes before they were seated.,5.076467275619507
+12,B,11,It was in the middle of nowhere.,4.965504169464111
+12,D,10,Jason and Jenna started their date in a vintage schooner.,4.552260637283325
+12,D,12,They waited about fifteen minutes before they were seated.,5.538033723831177
+12,D,11,It was in the middle of nowhere.,4.59004020690918
+12,C,10,The vintage schooner.,4.588806629180908
+12,C,12,They waited about fifteen minutes before they were seated.,5.606802225112915
+12,C,11,It was in the middle of nowhere.,4.600575923919678
+11,A,11,The music instructor gave her lessons at her home.,4.831838369369507
+11,A,12,She saw two students.,5.396014928817749
+11,A,10,The piano.,4.6245973110198975
+11,B,11,The music instructor gave her lessons at her home.,5.191089868545532
+11,B,12,She saw two students.,4.970161437988281
+11,B,10,The piano.,4.651484727859497
+11,C,11,The music instructor gave her lessons at her home.,5.595564842224121
+11,C,12,She saw two students.,4.618328094482422
+11,C,10,The viola.,4.62254524230957
+11,D,11,The music instructor gave her lessons at her home.,5.649348974227905
+11,D,12,She saw two students.,4.632479429244995
+11,D,10,The viola.,4.982370615005493
+01,A,10,A bottle of wine.,5.13564133644104
+01,A,12,The Madison Hotel.,4.625755071640015
+01,A,11,She went to the drugstore to buy an umbrella.,5.54083514213562
+01,B,10,A bourbon.,4.6536033153533936
+01,B,12,The Madison Hotel.,4.585598945617676
+01,B,11,She went to the drugstore to buy an umbrella.,5.545947790145874
+01,C,10,A scotch.,4.5923449993133545
+01,C,12,The Madison Hotel.,4.711602210998535
+01,C,11,She went to the drugstore to buy an umbrella.,5.442091941833496
+01,D,10,A scotch.,4.615488767623901
+01,D,12,The Madison Hotel.,5.07116174697876
+01,D,11,She went to the drugstore to buy an umbrella.,5.521548271179199

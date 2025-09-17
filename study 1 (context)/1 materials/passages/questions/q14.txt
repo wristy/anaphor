@@ -1,0 +1,3 @@
+10	Which friendly animal did Jenna pick up from the vet?
+11	How did Jenna get to the veterinary clinic?
+12	How long did the errand take Jenna?

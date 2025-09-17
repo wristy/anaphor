@@ -1,0 +1,233 @@
+Passage,Version,Question,Answer,Response Time
+01,A,12,"In the bar, just off the lobby.",6.442596912384033
+01,A,10,Amber Ale,6.486111402511597
+01,A,11,She ordered an amber beer.,6.4746458530426025
+01,B,12,In the lobby of the Madison Hotel.,6.495021343231201
+01,B,10,Amber Ale,6.4711754322052
+01,B,11,She checked her watch.,6.450327157974243
+01,C,12,The Madison Hotel,6.4483723640441895
+01,C,10,Amber ale.,6.450983762741089
+01,C,11,She ordered an amber beer.,6.493173599243164
+01,D,12,The Madison Hotel,6.439040660858154
+01,D,10,Amber Ale,6.438066244125366
+01,D,11,She ordered an amber beer.,6.434976816177368
+02,B,11,He looked at the top shelf of the bookcase.,6.512923002243042
+02,B,13,In the family room.,6.507211446762085
+02,B,10,The jolly relative was Joshua's uncle.,6.51274847984314
+02,D,11,Joshua looked for the treasure in the yard with the hollow tree.,6.510770320892334
+02,D,13,In the neighborhood.,6.522754192352295
+02,D,10,The jolly uncle rang the bell to signal the end of the treasure hunt.,6.570582389831543
+06,B,10,The plastic chair.,6.435370206832886
+06,B,11,He found it under his feet.,6.4279937744140625
+06,B,12,He tripped over it.,6.44516921043396
+06,C,10,The plastic chair.,6.424772024154663
+06,C,11,In his car.,6.426558256149292
+06,C,12,He ran to his car.,6.425483703613281
+06,D,10,The plastic chair.,6.4373557567596436
+06,D,11,In the trunk of his car.,6.438303709030151
+06,D,12,He walked past the control tower.,6.434226036071777
+08,A,12,Tamika had to wait only a few seconds before she was seated at the restaurant.,6.441977024078369
+08,A,11,The restaurant was across the street from the cemetery.,6.412883281707764
+08,A,10,Yellow roses.,6.414134502410889
+08,B,12,Two hours.,0.342876672744751
+08,B,11,The restaurant was across the street from the cemetery.,6.431921005249023
+08,B,10,Yellow roses.,0.40744948387145996
+08,C,12,10 minutes,6.4419310092926025
+08,C,11,10 minutes,6.423588991165161
+08,C,10,Yellow roses.,6.425448417663574
+08,D,12,30 minutes,6.432025194168091
+08,D,11,10 miles,6.437666893005371
+08,D,10,Yellow roses.,0.41220760345458984
+09,B,10,A hammer.,0.35447239875793457
+09,B,11,The house next door.,6.487701654434204
+09,B,12,"Yes, the police apprehended the criminal in a timely manner.",6.502588272094727
+09,C,10,A crowbar.,0.41414427757263184
+09,C,11,The tube slide.,6.442089319229126
+09,C,12,"Yes, the police apprehended the criminal in a timely manner.",6.463160514831543
+09,D,10,A crowbar.,6.45751428604126
+09,D,11,The tube slide.,6.474491834640503
+09,D,12,"Yes, the police apprehended the criminal in a timely manner.",6.479721784591675
+12,A,10,sailboat,6.403765916824341
+12,A,11,The restaurant was located on the water.,6.398477077484131
+12,A,12,5 minutes,6.419877529144287
+12,B,10,sailboat,6.43284273147583
+12,B,11,On the dock.,6.40449070930481
+12,B,12,1 hour,6.408796548843384
+15,A,11,"Yes, Jessie arrived at the judge's tent in a timely manner.",6.423506259918213
+15,A,12,20 steps,6.428989887237549
+15,A,10,Apples,6.428187847137451
+15,B,11,"Yes, she arrived at the judge's tent in a timely manner.",6.433259725570679
+15,B,12,20 steps,6.432523488998413
+15,B,10,Apples,6.429005861282349
+15,C,11,"Yes, Jessie arrived at the judge's tent in a timely manner.",6.473738193511963
+15,C,12,1000 feet,6.430623531341553
+15,C,10,Apples,6.436279535293579
+15,D,11,No.,6.452064037322998
+15,D,12,2 miles,6.440155506134033
+15,D,10,Apples,6.458486080169678
+16,B,12,"Yes, she arrived at work in a timely manner.",6.4178032875061035
+16,B,10,The glossy book that Keisha left on the bench was a copy of The Great Gatsby.,1.5438272953033447
+16,B,11,Keisha had a lot of issues getting to work.,6.414860486984253
+16,C,12,"Yes, she did.",0.47320079803466797
+16,C,10,The glossy book was a copy of the New York Times.,1.0422520637512207
+16,C,11,Keisha had several issues getting to work.,6.438993453979492
+16,D,12,"Yes, she arrived at work in a timely manner.",6.475902080535889
+16,D,10,The glossy book was a copy of the New York Times.,1.0475773811340332
+16,D,11,Keisha had several issues getting to work.,6.443035125732422
+17,A,12,1 minute,6.425049304962158
+17,A,10,The gun.,0.34430670738220215
+17,A,11,In his car.,0.40424513816833496
+17,B,12,30 minutes,6.434706211090088
+17,B,10,The gun.,0.34883546829223633
+17,B,11,In his car.,0.40511584281921387
+17,C,12,10 minutes,6.426663160324097
+17,C,10,The gun.,6.428387403488159
+17,C,11,At home.,6.435708284378052
+17,D,12,1 hour,6.43506932258606
+17,D,10,The gun.,6.443771839141846
+17,D,11,At his house.,6.475793838500977
+18,A,10,A pair of trendy pants.,0.5987091064453125
+18,A,11,30 minutes,6.420745849609375
+18,A,12,A chic boutique,6.4181389808654785
+18,B,10,A pair of trendy pants.,0.5961613655090332
+18,B,11,3 hours,6.434180021286011
+18,B,12,The first place that Sarah tried to find her sister's birthday present was the coat rack.,6.440888404846191
+18,C,10,A pair of trendy pants.,0.6004970073699951
+18,C,11,30 minutes,6.432192802429199
+18,C,12,The boutique.,6.438081502914429
+18,D,10,A pair of trendy pants.,0.6057095527648926
+18,D,11,1 hour,6.440018892288208
+18,D,12,The mall.,6.437434196472168
+19,A,12,"Yes, the robbers were still in the jewelry store when the police arrived.",6.430358648300171
+19,A,10,Diamonds,6.449602842330933
+19,A,phone,Her cell phone,6.430707931518555
+19,A,11,10 feet,6.430048942565918
+19,B,12,Yes.,6.4272074699401855
+19,B,10,Diamonds.,6.432650804519653
+19,B,phone,A cell phone,6.430835485458374
+19,B,11,100 feet,6.431987524032593
+19,D,12,Yes.,6.434568881988525
+19,D,10,Diamonds.,6.447924613952637
+19,D,phone,A cell phone,6.468076229095459
+19,D,11,1.,6.441167593002319
+20,A,10,The warrior wiped his soiled fingers on his wool shirt.,6.42907977104187
+20,A,12,15 minutes,6.433051824569702
+20,A,11,At the table.,6.440255165100098
+20,B,10,The warrior wiped his soiled fingers on his wool shirt.,6.47126841545105
+20,B,12,10 hours,6.434525728225708
+20,B,11,He ate his lunch in the corner.,6.439010381698608
+20,C,10,The warrior wiped his soiled fingers on his wool shirt.,6.423025608062744
+20,C,12,15 minutes,6.4312262535095215
+20,C,11,The warrior ate his lunch at the inn.,6.461822748184204
+20,D,10,The warrior wiped his soiled fingers on his wool shirt.,6.451862096786499
+20,D,12,12 hours,6.4310386180877686
+20,D,11,The warrior ate his lunch at the inn.,6.435322999954224
+14,A,10,dog,6.442415952682495
+14,A,11,She drove.,6.428801774978638
+14,A,12,5 minutes,6.441357851028442
+14,B,10,dog,6.438837289810181
+14,B,11,She walked.,6.445231914520264
+14,B,12,1 hour and 30 minutes,6.469731569290161
+14,C,10,Dog,6.456798553466797
+14,C,11,She drove.,6.444277763366699
+14,C,12,15 minutes,6.4456024169921875
+14,D,10,dog,6.43909215927124
+14,D,11,She walked.,6.430246829986572
+14,D,12,3 hours,6.440430402755737
+05,A,12,The exhibit was located to the right of the zoo's entrance.,6.397046804428101
+05,A,11,10 minutes,6.403480768203735
+05,A,10,The lion.,0.3369419574737549
+07,A,11,10 seconds,6.4312050342559814
+07,A,12,In his bag.,6.456555604934692
+07,A,10,Jason saw himself as a motivating teacher.,6.429869651794434
+07,B,11,30 minutes,6.428537845611572
+07,B,12,The bottom of his bag.,6.432150602340698
+07,B,10,Jason saw himself as a motivating teacher.,6.424973487854004
+07,C,11,1 minute,6.428473949432373
+07,C,12,He looked under the stack of newspapers on the coffee table.,6.432290315628052
+07,C,10,Jason saw himself as a motivating teacher.,6.431321382522583
+11,D,12,3,6.469303607940674
+11,D,11,She gave her lessons in the homes of her students.,6.4937334060668945
+11,D,10,The piano.,0.3548438549041748
+03,C,11,"No, the chef should not have been so frustrated.",6.506598711013794
+03,C,12,The chef was on the trolley.,6.498143911361694
+03,C,10,The chef would use his gleaming knife to complete his preparations.,1.0903756618499756
+05,C,12,The exhibit was located to the right of the zoo's entrance.,6.4298646450042725
+05,C,11,10 minutes,6.4002275466918945
+05,C,10,The lion.,0.34015798568725586
+03,B,11,No.,6.500468730926514
+03,B,12,In the kitchen.,6.4969987869262695
+03,B,10,The chef would use his gleaming knife to complete his preparations.,6.501078844070435
+07,D,11,30 minutes,6.455971002578735
+07,D,12,In his bag.,6.47197961807251
+07,D,10,Jason saw himself as a motivating teacher.,6.449245452880859
+16,A,12,"Yes, Keisha arrived at work in a timely manner.",6.419998645782471
+16,A,10,"The glossy book that Keisha left on the bench was a copy of the novel, ""The Great Gatsby.",1.7971723079681396
+16,A,11,Keisha had a problem with her car.,6.431548357009888
+05,D,12,The exhibit was located far from the zoo's entrance.,6.4110517501831055
+05,D,11,10 minutes,6.431497097015381
+05,D,10,The lion.,6.408367395401001
+11,B,12,3,6.442525148391724
+11,B,11,At her home.,6.44091796875
+11,B,10,The piano.,0.3547630310058594
+03,A,11,No.,6.449048757553101
+03,A,12,In the kitchen.,6.493811130523682
+03,A,10,The gleaming knife.,6.46812629699707
+12,C,10,sailboat,6.410200357437134
+12,C,11,In a town.,6.4143102169036865
+12,C,12,10 minutes,6.423960447311401
+06,A,10,The plastic chair.,6.405898094177246
+06,A,11,In his car.,6.412559270858765
+06,A,12,He tripped over it.,6.4091103076934814
+13,C,11,He looked in the empty boxes that were already in the apartment.,6.456000566482544
+13,C,12,10 minutes,6.479551792144775
+13,C,10,The dining room table.,6.4490766525268555
+11,C,12,0,6.446144342422485
+11,C,11,In her car.,6.449387550354004
+11,C,10,The piano.,0.3524653911590576
+03,D,11,"No, he should not have been so frustrated.",6.4993462562561035
+03,D,12,He was in the kitchen.,6.4902873039245605
+03,D,10,The chef would use his gleaming knife to complete the preparations.,1.0858664512634277
+05,B,12,The exhibit was located to the right of the zoo's entrance.,6.406155347824097
+05,B,11,1 hour,6.440188646316528
+05,B,10,The lion.,6.420702219009399
+13,B,11,He looked in the storage locker.,6.474719285964966
+13,B,12,30 minutes,6.44099235534668
+13,B,10,A table.,6.4391701221466064
+13,A,11,In the storage locker.,6.431554555892944
+13,A,12,1 minute,6.431673049926758
+13,A,10,A table.,6.42383599281311
+13,D,11,He looked in the remaining empty boxes.,6.442020893096924
+13,D,12,2 hours,6.468966245651245
+13,D,10,The dining room table.,6.461221694946289
+19,C,12,"Yes, they were.",6.450096368789673
+19,C,10,Diamonds.,6.473198652267456
+19,C,phone,a cell phone,6.438519239425659
+19,C,11,1.,6.437087774276733
+10,A,10,Leukemia,6.438156366348267
+10,A,11,The gift store was located on the 7th floor of the hospital.,6.428355693817139
+10,A,12,He sprinted down the hall.,6.4454638957977295
+10,C,10,Leukemia,6.437438726425171
+10,C,11,In the hospital.,6.430745601654053
+10,C,12,He sprinted through the 7th floor of the hospital.,6.43200945854187
+10,D,10,Leukemia,6.442817687988281
+10,D,11,In the hospital.,6.491409540176392
+10,D,12,He went to the gift store.,6.455421209335327
+10,B,10,Leukemia,6.457118988037109
+10,B,11,On the 7th floor of the hospital.,6.474982500076294
+10,B,12,He leaned against the wall and closed his eyes.,6.4801716804504395
+02,A,11,In the family room.,6.515685796737671
+02,A,13,In the family room.,6.499974966049194
+02,A,10,The jolly uncle rang the bell to signal the end of the treasure hunt.,6.498825550079346
+02,C,11,Joshua looked for the treasure in the yard with the hollow tree.,6.519527912139893
+02,C,13,In the neighborhood.,6.575705528259277
+02,C,10,The jolly uncle rang the bell to signal the end of the treasure hunt.,6.5208213329315186
+09,A,10,A hammer.,6.451189756393433
+09,A,11,The house next door.,6.442965745925903
+09,A,12,"Yes, the police apprehended the criminal in a timely manner.",6.441018581390381
+11,A,12,0,6.44452166557312
+11,A,11,At her home.,6.438347816467285
+11,A,10,The piano.,0.3470168113708496
+12,D,10,sailboat,6.413226842880249
+12,D,11,The restaurant was located in the town where Jason and Jenna were staying.,6.405307769775391
+12,D,12,30 minutes,6.4572694301605225
