@@ -1,40 +1,47 @@
-from litellm import completion
 import os
-from typing import List, Dict
+import pandas as pd
 import torch
 from pathlib import Path
-import pandas as pd
-import numpy as np
-import os
+from typing import List, Dict, Optional
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
 
 class AnaphorComprehensionAnalyzer:
-    def __init__(self, model_name: str):
-        self.model_name = model_name
+    """
+    Analyzer for Study 1 anaphor comprehension using Hugging Face models.
+    """
     
-    def ask_questions(self, context: str, questions: List[str]) -> Dict[str, str]:
-        answers = {}
+    def __init__(self, model_name: str, device: str = "auto"):
+        """
+        Initialize the analyzer with a specific model.
         
-        for i, question in enumerate(questions, 1):
-            prompt = f"Context: {context}\n\nQuestion: {question.strip()}\nAnswer:"
-            breakpoint()
-            if "gpt2-xl" in self.model_name:
-                response = completion(
-                model="huggingface/openai-community/gpt2-xl",
-                prompt="Hello, how are you?"
-            )
-            else:
-                response = completion(
-                    model=self.model_name,  # e.g., "gpt-3.5-turbo", "mistral/mistral-7b-instruct"
-                    messages=[{"role": "user", "content": prompt}],
-                    max_tokens=50,
-                    temperature=0.7
-                )
-            
-            answer = response.choices[0].message.content.strip()
-            answers[f"question_{i}"] = answer
+        Args:
+            model_name: HuggingFace model identifier (e.g., "openai-community/gpt2-xl")
+            device: Device to run the model on ("auto", "cuda", "cpu")
+        """
+        self.model_name = model_name
+        self.device = self._setup_device(device)
+        self.tokenizer = None
+        self.model = None
+        self._load_model()
+    
+    def _setup_device(self, device: str) -> str:
+        """Setup the device for model inference."""
+        if device == "auto":
+            return "cuda" if torch.cuda.is_available() else "cpu"
+        return device
+    
+    def _load_model(self):
+        """Load the tokenizer and model."""
+        print(f"Loading model: {self.model_name}")
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         
-            
-        return answers
+        # Add padding token if it doesn't exist
+        if self.tokenizer.pad_token is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
+        
+        self.model = AutoModelForCausalLM.from_pretrained(self.model_name).to(self.device)
+        print(f"Model loaded on {self.device}")
     
     def read_passage(self, file_path: str) -> str:
         """
@@ -102,31 +109,59 @@ class AnaphorComprehensionAnalyzer:
         prompt += "\nANSWERS:\n"
         return prompt
     
-   # Tokenize input
-            # input_ids = self.tokenizer.encode(prompt, return_tensors='pt').to(self.device)
+    def ask_questions(self, context: str, questions: List[str]) -> Dict[str, str]:
+        """
+        Generate answers for questions based on context.
+        
+        Args:
+            context: The passage context
+            questions: List of questions
             
-            # # Generate response
-            # with torch.no_grad():
-            #     outputs = self.model.generate(
-            #         input_ids,
-            #         max_new_tokens=50,
-            #         do_sample=True,
-            #         temperature=0.7,
-            #         pad_token_id=self.tokenizer.eos_token_id,
-            #         eos_token_id=self.tokenizer.eos_token_id
-            #     )
+        Returns:
+            Dictionary mapping question numbers to answers
+        """
+        answers = {}
+        
+        for i, question in enumerate(questions, 1):
+            # Create individual prompt for each question
+            prompt = f"Context: {context}\n\nQuestion: {question.strip()}\nAnswer:"
+            
+            # Tokenize input
+            input_ids = self.tokenizer.encode(prompt, return_tensors='pt').to(self.device)
+            
+            # Generate response
+            with torch.no_grad():
+                outputs = self.model.generate(
+                    input_ids,
+                    max_new_tokens=50,
+                    do_sample=True,
+                    temperature=0.7,
+                    pad_token_id=self.tokenizer.eos_token_id,
+                    eos_token_id=self.tokenizer.eos_token_id
+                )
             
             # Decode response
-            # generated_text = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
-            # answer = generated_text[len(prompt):].strip()
-
+            generated_text = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+            answer = generated_text[len(prompt):].strip()
+            
+            # Clean up answer (take first sentence or first line)
+            if '\n' in answer:
+                answer = answer.split('\n')[0]
+            if '.' in answer and len(answer.split('.')) > 1:
+                answer = answer.split('.')[0] + '.'
+            
+            answers[f"question_{i}"] = answer
+            print(f"Question {i}: {question}")
+            print(f"Answer: {answer}\n")
+        
+        return answers
     
     def process_study(self, study_path: str, versions: List[str] = None) -> pd.DataFrame:
         """
         Process all passages in Study.
         
         Args:
-            study_path: Base path to Study  directory
+            study_path: Base path to Study directory
             versions: List of versions to process (e.g., ["A", "B", "C", "D"])
             
         Returns:
@@ -196,19 +231,19 @@ class AnaphorComprehensionAnalyzer:
         df.to_excel(excel_path, index=False)
         print(f"Results saved to {excel_path}")
 
-def set_hf_token():
-    token = "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"
-    os.environ["HF_TOKEN"] = token
 
 def main():
     """
     Main function to run Study 1 analysis.
     """
-    set_hf_token()
     # Configuration
     models = [
-        "huggingface/openai-community/gpt2-xl"
+        "openai-community/gpt2-xl",
+        "mistralai/Mistral-7B-v0.1",
+        "mistralai/Mistral-7B-Instruct-v0.1"
     ]
+    
+    # Use relative path from script location
     script_dir = Path(__file__).parent
     study1_path = script_dir.parent / "study 1 (context)"
     
@@ -222,9 +257,7 @@ def main():
             analyzer = AnaphorComprehensionAnalyzer(model_name)
             
             # Process Study 1
-          
             results = analyzer.process_study(study1_path)
-
             
             # Save results
             model_safe_name = model_name.replace('/', '_')
