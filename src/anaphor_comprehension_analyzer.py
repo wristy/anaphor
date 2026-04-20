@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import torch
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 
@@ -195,7 +195,7 @@ class AnaphorComprehensionAnalyzer:
                 questions = self.read_questions(question_file)
                 
                 # Generate answers
-                answers = self.ask_questions(passage_text, questions)
+                answers = self.ask_questions(passage_text, questions) #dict mapping qs to answers
                 
                 # Store results
                 result = {
@@ -213,6 +213,192 @@ class AnaphorComprehensionAnalyzer:
         
         return pd.DataFrame(results)
     
+    def read_study3_passage(self, file_path: str) -> Dict:
+        """
+        Read and parse a Study 3 passage file.
+        
+        Args:
+            file_path: Path to the passage file (e.g., 1.txt)
+            
+        Returns:
+            Dictionary with passage components
+        """
+        with open(file_path, 'r', encoding='utf-8') as file:
+            lines = [line.rstrip('\n') for line in file.readlines()]
+        
+        passage_num = int(lines[0])
+        title_1 = lines[1]
+        title_2 = lines[2]
+        anaphor_1 = lines[3]
+        anaphor_2 = lines[4]
+        anaphor_q1_context = lines[5]
+        anaphor_q2_context = lines[6]
+        question_1 = lines[7]
+        question_2 = lines[8]
+        question_3 = lines[9]
+        question_4 = lines[10]
+        
+        # Get body text (from line 11 onwards)
+        body_lines = lines[11:]
+        body = ''.join(body_lines)
+        
+        # Replace placeholders "1" and "2" with anaphor contexts
+        modified_body = body.replace("1", anaphor_q1_context).replace("2", anaphor_q2_context)
+        
+        return {
+            'passage_num': passage_num,
+            'title_1': title_1,
+            'title_2': title_2,
+            'anaphor_1': anaphor_1,
+            'anaphor_2': anaphor_2,
+            'question_1': question_1,
+            'question_2': question_2,
+            'question_3': question_3,
+            'question_4': question_4,
+            'body': modified_body
+        }
+
+    def load_study3_answers(self, answers_file: str = None) -> Dict[Tuple[int, int], str]:
+        """
+        Load correct answers for Study 3 from answers.csv file.
+        
+        Args:
+            answers_file: Path to answers.csv file. If None, uses default path.
+            
+        Returns:
+            Dictionary mapping (passage_num, question_num) to answer string.
+            passage_num: 1-16
+            question_num: 1-2 (first two questions only)
+        """
+        import ast
+        from pathlib import Path
+        
+        if answers_file is None:
+            script_dir = Path(__file__).parent
+            answers_file = script_dir.parent / "study3_answers" / "answers.csv"
+        else:
+            answers_file = Path(answers_file)
+        
+        # Read the CSV file - it's a single row with all answers
+        with open(answers_file, 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+        
+        # Parse the CSV row - it contains quoted strings separated by commas
+        try:
+            # Use ast.literal_eval to safely parse the Python literal list
+            answers_list = ast.literal_eval('[' + content + ']')
+        except:
+            # Fallback: manual parsing
+            answers_list = []
+            for item in content.split(','):
+                item = item.strip().strip("'\"")
+                answers_list.append(item)
+        
+        # Create mapping: (passage_num, question_num) -> answer
+        # Order: Passage 1 Q1, Passage 1 Q2, Passage 2 Q1, Passage 2 Q2, ...
+        correct_answers = {}
+        answer_idx = 0
+        
+        for passage_num in range(1, 17):  # Passages 1-16
+            for question_num in range(1, 3):  # Questions 1-2
+                if answer_idx < len(answers_list):
+                    correct_answers[(passage_num, question_num)] = answers_list[answer_idx].strip()
+                    answer_idx += 1
+        
+        return correct_answers
+
+    def process_study3(self, study_path: str, versions: List[str] = None, 
+                       answers_file: str = None) -> pd.DataFrame:
+        """
+        Process all passages in Study 3.
+        
+        Args:
+            study_path: Base path to Study 3 directory
+            versions: List of versions to process (e.g., ["A", "B", "C", "D"])
+            answers_file: Path to answers.csv file. If None, uses default path.
+            
+        Returns:
+            DataFrame with all results including correct answers
+        """
+        if versions is None:
+            versions = ["A", "B", "C", "D"]
+        
+        # Load correct answers
+        correct_answers = self.load_study3_answers(answers_file)
+        
+        results = []
+        study_dir = Path(study_path)
+        
+        # Process each passage (1-16)
+        for passage_num in range(1, 17):
+            passage_file = study_dir / f"{passage_num}.txt"
+            
+            if not passage_file.exists():
+                print(f"Warning: Passage file {passage_file} not found")
+                continue
+            
+            # Read and parse passage
+            passage_data = self.read_study3_passage(passage_file)
+            
+            # Extract components
+            title_1 = passage_data['title_1']
+            title_2 = passage_data['title_2']
+            anaphor_1 = passage_data['anaphor_1']
+            anaphor_2 = passage_data['anaphor_2']
+            body = passage_data['body']
+            questions = [
+                passage_data['question_1'],
+                passage_data['question_2'],
+                passage_data['question_3'],
+                passage_data['question_4']
+            ]
+            
+            # Create 4 versions
+            version_configs = {
+                "A": (title_1, anaphor_1),  # matching title, high distance
+                "B": (title_1, anaphor_2),  # matching title, low distance
+                "C": (title_2, anaphor_1),  # unmatching title, high distance
+                "D": (title_2, anaphor_2)   # unmatching title, low distance
+            }
+            
+            # Process each version
+            for version in versions:
+                if version not in version_configs:
+                    continue
+                    
+                title, anaphor = version_configs[version]
+                
+                # Construct full passage text
+                passage_text = f"{title}{body}{anaphor}"
+                
+                # Generate answers for all 4 questions
+                generated_answers = self.ask_questions(passage_text, questions)
+                
+                # Get correct answers for questions 1-2
+                correct_answer_1 = correct_answers.get((passage_num, 1), "")
+                correct_answer_2 = correct_answers.get((passage_num, 2), "")
+                
+                # Store results
+                result = {
+                    "study": "study3",
+                    "version": version,
+                    "passage_num": str(passage_num).zfill(2),
+                    "passage_file": f"{passage_num}.txt",
+                    "passage_text": passage_text,
+                    "questions": questions,
+                    "question_1": generated_answers.get("question_1", ""),
+                    "question_2": generated_answers.get("question_2", ""),
+                    "question_3": generated_answers.get("question_3", ""),
+                    "question_4": generated_answers.get("question_4", ""),
+                    "correct_answer_1": correct_answer_1,
+                    "correct_answer_2": correct_answer_2,
+                }
+                results.append(result)
+                
+                print(f"Processed Study 3 - Version {version} - Passage {passage_num}")
+                
+        return pd.DataFrame(results)
+
     def save_results(self, df: pd.DataFrame, output_path: str):
         """
         Save results to CSV and Excel files.
@@ -230,6 +416,8 @@ class AnaphorComprehensionAnalyzer:
         excel_path = f"{output_path}.xlsx"
         df.to_excel(excel_path, index=False)
         print(f"Results saved to {excel_path}")
+
+        
 
 
 def main():

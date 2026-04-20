@@ -1,0 +1,229 @@
+Passage,Version,Question,Answer
+1,A,10,beer
+1,A,11,sorted/dumped documents
+1,A,12,Madison Hotel
+1,B,10,beer
+1,B,11,paid her bill
+1,B,12,Madison Hotel
+1,C,10,beer
+1,C,11,ordered a drink/grabbed her bag
+1,C,12,Madison Hotel
+1,D,10,beer
+1,D,11,reviewed her papers
+1,D,12,Madison Hotel
+2,A,10,uncle
+2,A,11,bookcase/top shelf
+2,A,12,house
+2,B,10,uncle
+2,B,11,bookcase/top shelf
+2,B,12,house
+2,C,10,uncle
+2,C,11,hollow tree
+2,C,12,in the neighborhood
+2,D,10,uncle
+2,D,11,hollow tree
+2,D,12,in the neighborhood
+3,A,10,knife
+3,A,11,no
+3,A,12,kitchen
+3,B,10,knife
+3,B,11,no
+3,B,12,kitchen
+3,C,10,knife
+3,C,11,yes
+3,C,12,kitchen
+3,D,10,knife
+3,D,11,yes
+3,D,12,kitchen
+5,A,10,lion
+5,A,11,5 min
+5,A,12,few yards/near
+5,B,10,lion
+5,B,11,2 hours
+5,B,12,few yards/near
+5,C,10,lion
+5,C,11,seconds
+5,C,12,far
+5,D,10,lion
+5,D,11,1 - 2 hours
+5,D,12,far
+6,A,10,chair
+6,A,11,in the hangar
+6,A,12,looked around the hangar
+6,B,10,chair
+6,B,11,in the hangar
+6,B,12,looked around the hangar
+6,C,10,chair
+6,C,11,car
+6,C,12,raced out of the hangar to his car
+6,D,10,chair
+6,D,11,car
+6,D,12,slowly walked to his car
+7,A,10,teacher
+7,A,11,seconds
+7,A,12,bag
+7,B,10,teacher
+7,B,11,30 min
+7,B,12,bag
+7,C,10,teacher
+7,C,11,ten minutes
+7,C,12,bag
+7,D,10,teacher
+7,D,11,3 hours
+7,D,12,bag
+8,A,10,roses
+8,A,11,across the street
+8,A,12,not at all
+8,B,10,roses
+8,B,11,across the street
+8,B,12,30 minutes
+8,C,10,roses
+8,C,11,neighboring town
+8,C,12,not at all
+8,D,10,roses
+8,D,11,neighboring town
+8,D,12,30 min
+9,A,10,hammer
+9,A,11,hedges
+9,A,12,yes
+9,B,10,hammer
+9,B,11,hedges
+9,B,12,no
+9,C,10,hammer
+9,C,11,park slide
+9,C,12,yes
+9,D,10,hammer
+9,D,11,park slide
+9,D,12,no
+10,A,10,cancer
+10,A,11,down the hall/7th floor
+10,A,12,sprinted/ran into neighbors
+10,B,10,cancer
+10,B,11,down the hall/7th floor
+10,B,12,leaned against wall/rest
+10,C,10,cancer
+10,C,11,several blocks away
+10,C,12,ran down stairs to lobby
+10,D,10,cancer
+10,D,11,several blocks away
+10,D,12,waited for elevator
+11,A,10,piano
+11,A,11,house
+11,A,12,zero
+11,B,10,piano
+11,B,11,house
+11,B,12,three
+11,C,10,piano
+11,C,11,students house
+11,C,12,zero
+11,D,10,piano
+11,D,11,students house
+11,D,12,three
+12,A,10,sailboat
+12,A,11,by the dock
+12,A,12,not at all
+12,B,10,sailboat
+12,B,11,by the dock
+12,B,12,an hour
+12,C,10,sailboat
+12,C,11,miles away through town
+12,C,12,not at all
+12,D,10,sailboat
+12,D,11,miles away through town
+12,D,12,not at all
+13,A,10,table
+13,A,11,in the pile/across the hall
+13,A,12,20 min
+13,B,10,table
+13,B,11,in the pile/across the hall
+13,B,12,3 hours
+13,C,10,table
+13,C,11,in the pile
+13,C,12,20  min
+13,D,10,table
+13,D,11,in the pile
+13,D,12,3 hours
+14,A,10,dog
+14,A,11,drove
+14,A,12,10-15 min
+14,B,10,dog
+14,B,11,walked
+14,B,12,one hour
+14,C,10,dog
+14,C,11,drove
+14,C,12,20 min
+14,D,10,dog
+14,D,11,walked
+14,D,12,3 hours 30 min
+15,A,10,apples
+15,A,11,yes
+15,A,12,near
+15,B,10,apples
+15,B,11,no
+15,B,12,near
+15,C,10,apples
+15,C,11,yes
+15,C,12,far
+15,D,10,apples
+15,D,11,no
+15,D,12,far
+16,A,10,paperback
+16,A,11,car broken
+16,A,12,yes
+16,B,10,paperback
+16,B,11,car broken/bus never came
+16,B,12,no
+16,C,10,paperback
+16,C,11,car broken
+16,C,12,yes
+16,D,10,paperback
+16,D,11,car/missed first bus/breakdown
+16,D,12,no
+17,A,10,gun
+17,A,11,car
+17,A,12,minutes
+17,B,10,gun
+17,B,11,car
+17,B,12,2 - 3 hours
+17,C,10,gun
+17,C,11,home
+17,C,12,15 - 30 min
+17,D,10,gun
+17,D,11,home
+17,D,12,3 hours
+18,A,10,pants
+18,A,11,30 min
+18,A,12,boutique
+18,B,10,pants
+18,B,11,several hours
+18,B,12,boutique
+18,C,10,pants
+18,C,11,30 min
+18,C,12,boutique/mall
+18,D,10,pants
+18,D,11,several hours
+18,D,12,mall
+19,A,10,diamonds
+19,A,11,a block/near
+19,A,12,everyone gets a 1
+19,B,10,diamonds
+19,B,11,a block/near
+19,B,12,everyone gets a 1
+19,C,10,diamonds
+19,C,11,at least a mile
+19,C,12,everyone gets a 1
+19,D,10,diamonds
+19,D,11,at least a mile
+19,D,12,everyone gets a 1
+20,A,10,shirt
+20,A,11,right where he was
+20,A,12,30 min
+20,B,10,shirt
+20,B,11,right where he was
+20,B,12,hours away
+20,C,10,shirt
+20,C,11,village/inn
+20,C,12,30 min
+20,D,10,shirt
+20,D,11,village/inn
+20,D,12,hours away
