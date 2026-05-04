@@ -1,0 +1,15 @@
+.DS_Store
+**/.DS_Store
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Local model caches and credentials.
+hf/
+
+# Scratch notebooks that contain exploratory/local credentials.
+CS7651_Project*.ipynb
+Exp2*.ipynb
+anaphor-automate-comprehesion-scoring/script/*.ipynb

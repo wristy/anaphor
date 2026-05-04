@@ -1,0 +1,18 @@
+[project]
+name = "anaphor"
+version = "0.1.0"
+description = "Research Project on Anaphor Resolution in LLMs"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "google>=3.0.0",
+    "huggingface>=0.0.1",
+    "ipykernel>=6.30.1",
+    "litellm>=1.77.5",
+    "matplotlib>=3.10.6",
+    "numpy>=2.2.6",
+    "openpyxl>=3.1.5",
+    "pandas>=2.3.2",
+    "pip>=25.2",
+    "transformers>=4.57.0",
+]

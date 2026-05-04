@@ -1,0 +1,45 @@
+1	Keisha looked around
+1	the bus stop with a sigh.
+1	She couldn't believe her car
+1	had broken down again.
+1	She sat on a wooden bench
+2	and pulled out her glossy paperback.
+4	The bench cut into the backs of her legs
+4	since she wasn't tall enough
+4	for her feet to touch the ground.
+4	She settled in to wait for the 8:57 bus.
+4	She waited and waited but
+4	the bus never came.
+4	After a half hour,
+4	she realized that she had missed it.
+4	She had no other choice but to wait
+4	patiently for the 10:25 bus.
+4	It arrived almost an hour later.
+4	Tired and late for work,
+4	she took a seat near the front.
+4	The traffic was heavy,
+4	and the bus started to crawl
+4	the few miles to her work.
+4	After one mile, it stopped
+4	in front of the bakery.
+4	Several people slowly boarded.
+4	The bus continued along its slow journey.
+4	After another mile, it stopped
+4	in front of the grocery store.
+4	A large number of passengers
+4	boarded there.  One mile later,
+4	the bus gave a jolt and rolled to a stop.
+4	It took an hour for a mechanic to arrive.
+4	It took another hour
+4	for him to fix the problem.
+4	Eventually, the bus
+4	shuddered back to life.
+4	The traffic was still heavy.
+4	A half hour later, the bus finally
+4	stopped in front of her work.
+4	At that moment, she realized that she
+5	had left her glossy book on the bench
+6	at the bus stop.
+6	She crossed her fingers that her car
+6	would be fixed by that afternoon,
+6	and she would be able to drive to work.

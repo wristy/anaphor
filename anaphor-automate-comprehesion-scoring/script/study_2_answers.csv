@@ -1,0 +1,229 @@
+Passage,Version,Question,Answer
+1,A,10,beer
+1,A,11,reviewed her papers
+1,A,12,Madison Hotel
+1,B,10,beer
+1,B,11,reviewed her papers
+1,B,12,Madison Hotel
+1,C,10,scotch
+1,C,11,reviewed her papers
+1,C,12,Madison Hotel
+1,D,10,scotch
+1,D,11,reviewed her papers
+1,D,12,Madison Hotel
+2,A,10,uncle
+2,A,11,hollow tree
+2,A,12,in the neighborhood
+2,B,10,uncle
+2,B,11,hollow tree
+2,B,12,in the neighborhood
+2,C,10,nephew
+2,C,11,hollow tree
+2,C,12,in the neighborhood
+2,D,10,nephew
+2,D,11,hollow tree
+2,D,12,in the neighborhood
+3,A,10,knife
+3,A,11,yes
+3,A,12,kitchen
+3,B,10,knife
+3,B,11,yes
+3,B,12,kitchen
+3,C,10,tongs
+3,C,11,yes
+3,C,12,kitchen
+3,D,10,tongs
+3,D,11,yes
+3,D,12,kitchen
+5,A,10,lion
+5,A,11,1 - 2 hours
+5,A,12,far
+5,B,10,lion
+5,B,11,1 - 2 hours
+5,B,12,far
+5,C,10,cheetah
+5,C,11,1 - 2 hours
+5,C,12,far
+5,D,10,cheetah
+5,D,11,1 - 2 hours
+5,D,12,far
+6,A,10,chair
+6,A,11,car/trunk
+6,A,12,raced out of the hangar/to lot
+6,B,10,chair
+6,B,11,car/trunk
+6,B,12,raced out of the hangar/to lot
+6,C,10,stool 
+6,C,11,car/trunk
+6,C,12,raced out of the hangar/to lot
+6,D,10,stool
+6,D,11,car/trunk
+6,D,12,raced out of the hangar/to lot
+7,A,10,lawyer
+7,A,11,3 hours
+7,A,12,bag
+7,B,10,lawyer
+7,B,11,3 hours
+7,B,12,bag
+7,C,10,banker
+7,C,11,3 hours
+7,C,12,bag
+7,D,10,banker
+7,D,11,3 hours
+7,D,12,bag
+8,A,10,roses
+8,A,11,neighboring town
+8,A,12,30 min
+8,B,10,roses
+8,B,11,neighboring town
+8,B,12,30 min
+8,C,10,orchids
+8,C,11,neighboring town
+8,C,12,30 min
+8,D,10,orchids
+8,D,11,neighboring town
+8,D,12,30 min
+9,A,10,hammer
+9,A,11,house/tube slide
+9,A,12,no
+9,B,10,hammer
+9,B,11,house/tube slide
+9,B,12,no
+9,C,10,chisel
+9,C,11,house/tube slide
+9,C,12,no
+9,D,10,chisel
+9,D,11,house/tube slide
+9,D,12,no
+10,A,10,cancer
+10,A,11,several blocks away
+10,A,12,plodded through 7th floor/waited for elevator
+10,B,10,cancer
+10,B,11,several blocks away
+10,B,12,plodded through 7th floor/waited for elevator
+10,C,10,smallpox
+10,C,11,several blocks away
+10,C,12,plodded through 7th floor/waited for elevator
+10,D,10,smallpox
+10,D,11,several blocks away
+10,D,12,plodded through 7th floor/waited for elevator
+11,A,10,piano
+11,A,11,student's home
+11,A,12,three
+11,B,10,piano
+11,B,11,student's home
+11,B,12,three
+11,C,10,viola
+11,C,11,student's home
+11,C,12,three
+11,D,10,viola
+11,D,11,student's home
+11,D,12,three
+12,A,10,sailboat
+12,A,11,few steps away/next to dock/several miles away/ other end of town
+12,A,12,not at all
+12,B,10,sailboat
+12,B,11,few steps away/next to dock/several miles away/ other end of town
+12,B,12,not at all
+12,C,10,schooner
+12,C,11,few steps away/next to dock/several miles away/ other end of town
+12,C,12,not at all
+12,D,10,schooner
+12,D,11,few steps away/next to dock/several miles away/ other end of town
+12,D,12,not at all
+13,A,10,table
+13,A,11,home/apartment/stack of boxes/living room
+13,A,12,2 - 3 hours
+13,B,10,table
+13,B,11,home/apartment/stack of boxes/living room
+13,B,12,2 - 3 hours
+13,C,10,futon
+13,C,11,home/apartment/stack of boxes/living room
+13,C,12,2 - 3 hours
+13,D,10,futon
+13,D,11,home/apartment/stack of boxes/living room
+13,D,12,2 - 3 hours
+14,A,10,dog
+14,A,11,walked
+14,A,12,3.5 hours
+14,B,10,dog
+14,B,11,walked
+14,B,12,3.5 hours
+14,C,10,hamster
+14,C,11,walked
+14,C,12,3.5 hours
+14,D,10,hamster
+14,D,11,walked
+14,D,12,3.5 hours
+15,A,10,apples
+15,A,11,yes
+15,A,12,"other side of fair, 2 miles"
+15,B,10,apples
+15,B,11,yes
+15,B,12,"other side of fair, 2 miles"
+15,C,10,mangos
+15,C,11,yes
+15,C,12,"other side of fair, 2 miles"
+15,D,10,mangos
+15,D,11,yes
+15,D,12,"other side of fair, 2 miles"
+16,A,10,magazine
+16,A,11,car/missed first bus/breakdown
+16,A,12,no
+16,B,10,magazine
+16,B,11,car/missed first bus/breakdown
+16,B,12,no
+16,C,10,pamphlet
+16,C,11,car/missed first bus/breakdown
+16,C,12,no
+16,D,10,pamphlet
+16,D,11,car/missed first bus/breakdown
+16,D,12,no
+17,A,10,knife
+17,A,11,home
+17,A,12,1 hour
+17,B,10,knife
+17,B,11,home
+17,B,12,1 hour
+17,C,10,club
+17,C,11,home
+17,C,12,1 hour
+17,D,10,club
+17,D,11,home
+17,D,12,1 hour
+18,A,10,shirt
+18,A,11,several hours
+18,A,12,mall
+18,B,10,shirt
+18,B,11,several hours
+18,B,12,mall
+18,C,10,skirt
+18,C,11,several hours
+18,C,12,mall
+18,D,10,skirt
+18,D,11,several hours
+18,D,12,mall
+19,A,10,diamonds
+19,A,11,at least a mile/several hours/blocks/across construction site
+19,A,12,"unknown, story did not say"
+19,B,10,diamonds
+19,B,11,at least a mile/several hours/blocks/across construction site
+19,B,12,"unknown, story did not say"
+19,C,10,opals
+19,C,11,at least a mile/several hours/blocks/across construction site
+19,C,12,"unknown, story did not say"
+19,D,10,opals
+19,D,11,at least a mile/several hours/blocks/across construction site
+19,D,12,"unknown, story did not say"
+20,A,10,shirt
+20,A,11,village/inn
+20,A,12,hours away
+20,B,10,shirt
+20,B,11,village/inn
+20,B,12,hours away
+20,C,10,scarf
+20,C,11,village/inn
+20,C,12,hours away
+20,D,10,scarf
+20,D,11,village/inn
+20,D,12,hours away

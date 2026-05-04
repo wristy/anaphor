@@ -1,0 +1,13 @@
+jupyter
+ipykernel
+matplotlib
+numpy
+openpyxl
+pandas
+torch
+transformers
+huggingface-hub>=0.34.0,<1.0
+accelerate
+datasets
+google-generativeai
+
