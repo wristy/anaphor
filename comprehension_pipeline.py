@@ -48,6 +48,22 @@ PAPER_COMPREHENSION_MODEL_ORDER = [
     "mistral24b",
 ]
 
+PAPER_TO_REPO_COMPREHENSION_STUDY = {
+    1: 3,
+    2: 1,
+    3: 2,
+}
+
+REPO_TO_PAPER_COMPREHENSION_STUDY = {
+    repo_study: paper_experiment
+    for paper_experiment, repo_study in PAPER_TO_REPO_COMPREHENSION_STUDY.items()
+}
+
+REPO_STUDY_TO_COMPREHENSION_FIGURE = {
+    repo_study: paper_experiment * 2
+    for repo_study, paper_experiment in REPO_TO_PAPER_COMPREHENSION_STUDY.items()
+}
+
 COMPREHENSION_MODEL_DISPLAY_NAMES = {
     "gpt2xl": "GPT2-XL",
     "llama3": "LLaMa-3.1-8B",
@@ -709,15 +725,18 @@ def plot_question_accuracy_by_version(
 
 def save_comprehension_outputs(
     scored_df: pd.DataFrame,
-    output_dir: str | Path,
+    data_dir: str | Path,
     prefix: str,
+    figure_dir: str | Path | None = None,
 ) -> ComprehensionFigurePaths:
-    output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
+    data_dir = Path(data_dir)
+    figure_dir = Path(figure_dir) if figure_dir is not None else data_dir
+    data_dir.mkdir(parents=True, exist_ok=True)
+    figure_dir.mkdir(parents=True, exist_ok=True)
     paper_scored_df = scored_df[scored_df["model"].isin(PAPER_COMPREHENSION_MODEL_ORDER)].copy()
     by_model = summarize_accuracy_by_version(paper_scored_df)
-    by_model_csv = output_dir / f"{prefix}_accuracy_by_model_version.csv"
-    model_png = output_dir / f"{prefix}_accuracy_by_model_version.png"
+    by_model_csv = data_dir / f"{prefix}.csv"
+    model_png = figure_dir / f"{prefix}.png"
     by_model.to_csv(by_model_csv, index=False)
     plot_accuracy_by_model_version(by_model, model_png)
     plt.close("all")

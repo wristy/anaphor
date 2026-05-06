@@ -13,3 +13,4 @@ hf/
 CS7651_Project*.ipynb
 Exp2*.ipynb
 anaphor-automate-comprehesion-scoring/script/*.ipynb
+dist/

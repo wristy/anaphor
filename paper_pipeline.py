@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import math
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Callable
+from typing import Any, Callable, Sequence
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -35,13 +35,28 @@ MODEL_DISPLAY_NAMES = {
     "Mistral-24B": "Mistral-24B",
 }
 
+PAPER_TO_REPO_EXPERIMENT = {
+    1: "exp3",
+    2: "exp1",
+    3: "exp2",
+}
+
+REPO_TO_PAPER_EXPERIMENT = {
+    repo_experiment: paper_experiment
+    for paper_experiment, repo_experiment in PAPER_TO_REPO_EXPERIMENT.items()
+}
+
 
 @dataclass(frozen=True)
 class ModelSpec:
     hf_id: str
-    architecture: str
+    architecture: str = "causal"
     revision: str | None = None
-    torch_dtype: str = "float32"
+    torch_dtype: str = "auto"
+    display_name: str | None = None
+    trust_remote_code: bool = False
+    tokenizer_kwargs: dict[str, Any] = field(default_factory=dict)
+    model_kwargs: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -58,26 +73,101 @@ class ExperimentSpec:
     data_builder: Callable[[Path], list[dict[str, object]]]
 
 
-MODEL_SPECS = {
-    "GPT2": ModelSpec("openai-community/gpt2-xl", "causal", torch_dtype="float32"),
+MODEL_SPECS: dict[str, ModelSpec] = {
+    "GPT2": ModelSpec(
+        "openai-community/gpt2-xl",
+        "causal",
+        torch_dtype="float32",
+        display_name="GPT2-XL",
+    ),
     "Mistral-7B": ModelSpec(
-        "mistralai/Mistral-7B-v0.1", "causal", torch_dtype="float16"
+        "mistralai/Mistral-7B-v0.1",
+        "causal",
+        torch_dtype="float16",
+        display_name="Mistral-7B",
     ),
     "pythia-12b-deduped": ModelSpec(
         "EleutherAI/pythia-12b-deduped",
         "causal",
         revision="step143000",
         torch_dtype="float32",
+        display_name="Pythia-12B",
     ),
     "LLaMa-3.1-8B": ModelSpec(
-        "meta-llama/Llama-3.1-8B", "causal", torch_dtype="float32"
+        "meta-llama/Llama-3.1-8B",
+        "causal",
+        torch_dtype="float32",
+        display_name="LLaMa3.1-8B",
     ),
     "Mistral-24B": ModelSpec(
         "mistralai/Mistral-Small-24B-Instruct-2501",
         "causal",
         torch_dtype="float16",
+        display_name="Mistral-24B",
     ),
 }
+
+
+def register_hf_model(
+    name: str,
+    hf_id: str,
+    *,
+    architecture: str = "causal",
+    revision: str | None = None,
+    torch_dtype: str = "auto",
+    display_name: str | None = None,
+    trust_remote_code: bool = False,
+    tokenizer_kwargs: dict[str, Any] | None = None,
+    model_kwargs: dict[str, Any] | None = None,
+) -> str:
+    """Register a Hugging Face model alias for experiment regeneration.
+
+    Newer decoder-only models usually work by setting only `name` and `hf_id`.
+    Use `revision`, `torch_dtype`, or `trust_remote_code` when the model card
+    says they are required.
+    """
+    MODEL_SPECS[name] = ModelSpec(
+        hf_id=hf_id,
+        architecture=architecture,
+        revision=revision,
+        torch_dtype=torch_dtype,
+        display_name=display_name or name,
+        trust_remote_code=trust_remote_code,
+        tokenizer_kwargs=tokenizer_kwargs or {},
+        model_kwargs=model_kwargs or {},
+    )
+    if name not in MODEL_ORDER:
+        MODEL_ORDER.append(name)
+    if name not in PAPER_MODEL_ORDER:
+        MODEL_DISPLAY_NAMES[name] = display_name or name
+    return name
+
+
+def resolve_model_spec(model: str | ModelSpec) -> tuple[str, ModelSpec]:
+    if isinstance(model, ModelSpec):
+        name = model.display_name or model.hf_id
+        return name, model
+
+    if model in MODEL_SPECS:
+        return model, MODEL_SPECS[model]
+
+    hf_id = model[3:] if model.startswith("hf:") else model
+    if "/" not in hf_id:
+        known = ", ".join(sorted(MODEL_SPECS))
+        raise KeyError(
+            f"Unknown model alias {model!r}. Use one of [{known}], pass a Hugging Face "
+            "repo id like 'meta-llama/Llama-3.2-1B', or call register_hf_model(...)."
+        )
+
+    return model, ModelSpec(hf_id=hf_id, architecture="causal", display_name=model)
+
+
+def display_name_for_model(model: str) -> str:
+    if model in MODEL_DISPLAY_NAMES:
+        return MODEL_DISPLAY_NAMES[model]
+    if model in MODEL_SPECS and MODEL_SPECS[model].display_name:
+        return str(MODEL_SPECS[model].display_name)
+    return model.rsplit("/", 1)[-1]
 
 
 def _collapse_whitespace(text: str) -> str:
@@ -264,8 +354,8 @@ def build_exp3_items(root: Path) -> list[dict[str, object]]:
 EXPERIMENTS = {
     "exp1": ExperimentSpec(
         slug="exp1",
-        title="Experiment 1",
-        figure_number=1,
+        title="Repository Experiment 1 (Paper Experiment 2)",
+        figure_number=3,
         passage_ids=[1, 2, 3, *range(5, 21)],
         legacy_version_order=["A", "B", "C", "D"],
         paper_version_order=["A", "C", "B", "D"],
@@ -281,8 +371,8 @@ EXPERIMENTS = {
     ),
     "exp2": ExperimentSpec(
         slug="exp2",
-        title="Experiment 2",
-        figure_number=3,
+        title="Repository Experiment 2 (Paper Experiment 3)",
+        figure_number=5,
         passage_ids=[1, 2, 3, *range(5, 21)],
         legacy_version_order=["A", "B", "C", "D"],
         paper_version_order=["B", "A", "D", "C"],
@@ -298,8 +388,8 @@ EXPERIMENTS = {
     ),
     "exp3": ExperimentSpec(
         slug="exp3",
-        title="Experiment 3",
-        figure_number=5,
+        title="Repository Experiment 3 (Paper Experiment 1)",
+        figure_number=1,
         passage_ids=list(range(1, 17)),
         legacy_version_order=["A", "C", "B", "D"],
         paper_version_order=["A", "C", "B", "D"],
@@ -322,10 +412,20 @@ class WordScore:
     surprisal: float
 
 
+@dataclass
+class ExperimentRun:
+    experiment: str
+    source: str
+    wide_df: pd.DataFrame
+    csv_path: Path | None = None
+    long_csv_path: Path | None = None
+    figure_png_path: Path | None = None
+    validation: dict[str, float] | None = None
+
+
 class SurprisalScorer:
-    def __init__(self, model_name: str) -> None:
-        self.model_name = model_name
-        self.spec = MODEL_SPECS[model_name]
+    def __init__(self, model: str | ModelSpec) -> None:
+        self.model_name, self.spec = resolve_model_spec(model)
         self.tokenizer = None
         self.model = None
         self.device = None
@@ -338,23 +438,44 @@ class SurprisalScorer:
             return
 
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        if self.spec.architecture not in {"causal", "masked"}:
+            raise ValueError(
+                f"Unsupported architecture {self.spec.architecture!r}; use 'causal' "
+                "for AutoModelForCausalLM-compatible Hugging Face models."
+            )
+
+        tokenizer_kwargs = {
+            "trust_remote_code": self.spec.trust_remote_code,
+            **self.spec.tokenizer_kwargs,
+        }
+        if self.spec.revision:
+            tokenizer_kwargs["revision"] = self.spec.revision
         self.tokenizer = AutoTokenizer.from_pretrained(
             self.spec.hf_id,
-            revision=self.spec.revision,
+            **tokenizer_kwargs,
         )
 
-        common_kwargs = {"revision": self.spec.revision} if self.spec.revision else {}
-        dtype = getattr(torch, self.spec.torch_dtype)
+        common_kwargs = {
+            "trust_remote_code": self.spec.trust_remote_code,
+            **self.spec.model_kwargs,
+        }
+        if self.spec.revision:
+            common_kwargs["revision"] = self.spec.revision
+        if self.spec.torch_dtype and self.spec.torch_dtype != "none":
+            common_kwargs["torch_dtype"] = (
+                self.spec.torch_dtype
+                if self.spec.torch_dtype == "auto"
+                else getattr(torch, self.spec.torch_dtype)
+            )
         if self.spec.architecture == "masked":
             self.model = AutoModelForMaskedLM.from_pretrained(
-                self.spec.hf_id, torch_dtype=dtype, **common_kwargs
+                self.spec.hf_id, **common_kwargs
             )
             self.model.to(self.device)
         else:
             self.model = AutoModelForCausalLM.from_pretrained(
                 self.spec.hf_id,
                 device_map="auto" if self.device == "cuda" else None,
-                torch_dtype=dtype,
                 **common_kwargs,
             )
             if self.device != "cuda":
@@ -436,20 +557,106 @@ def _generate_exp3(root: Path, scorer: SurprisalScorer) -> list[float]:
 def generate_experiment_wide(
     root: Path,
     experiment: str,
-    model_names: list[str] | None = None,
+    model_names: Sequence[str | ModelSpec] | None = None,
 ) -> pd.DataFrame:
     spec = EXPERIMENTS[experiment]
     models = model_names or MODEL_ORDER
     series_by_model: dict[str, list[float]] = {}
 
-    for model_name in models:
-        scorer = SurprisalScorer(model_name)
+    for model in models:
+        model_name, _ = resolve_model_spec(model)
+        scorer = SurprisalScorer(model)
         if experiment in {"exp1", "exp2"}:
             series_by_model[model_name] = _generate_exp1_or_exp2(root, spec, scorer)
         else:
             series_by_model[model_name] = _generate_exp3(root, scorer)
 
     return pd.DataFrame(series_by_model)
+
+
+def load_experiment_wide(
+    root: Path,
+    experiment: str,
+    data_source: str = "published",
+    model_names: Sequence[str | ModelSpec] | None = None,
+    generated_data_dir: Path | None = None,
+) -> pd.DataFrame:
+    generated_data_dir = generated_data_dir or root / "generated" / "data"
+    if data_source == "regenerate":
+        return generate_experiment_wide(root, experiment, model_names)
+    if data_source == "generated":
+        path = generated_data_dir / f"{experiment}.csv"
+        if not path.exists():
+            raise FileNotFoundError(
+                f"No saved generated data at {path}. Run with "
+                "data_source='regenerate' first, or use data_source='published'."
+            )
+        return pd.read_csv(path)
+    if data_source == "published":
+        return load_published_wide(root, experiment)
+    raise ValueError(f"Unknown data_source: {data_source!r}")
+
+
+def run_experiment(
+    root: Path,
+    experiment: str,
+    *,
+    data_source: str = "published",
+    model_names: Sequence[str | ModelSpec] | None = None,
+    generated_data_dir: Path | None = None,
+    figure_dir: Path | None = None,
+    write_generated_data: bool = False,
+    write_figures: bool = True,
+    plot_model_order: Sequence[str] | None = None,
+) -> ExperimentRun:
+    generated_data_dir = generated_data_dir or root / "generated" / "data"
+    figure_dir = figure_dir or root / "generated" / "figures"
+    wide_df = load_experiment_wide(
+        root,
+        experiment,
+        data_source=data_source,
+        model_names=model_names,
+        generated_data_dir=generated_data_dir,
+    )
+
+    csv_path: Path | None = None
+    long_csv_path: Path | None = None
+    if data_source == "regenerate" and write_generated_data:
+        csv_path, long_csv_path = save_experiment_outputs(
+            root, experiment, wide_df, generated_data_dir
+        )
+    elif data_source == "generated":
+        csv_path = generated_data_dir / f"{experiment}.csv"
+        long_csv_path = generated_data_dir / f"{experiment}_long.csv"
+
+    validation: dict[str, float] | None = None
+    if data_source == "regenerate":
+        reference_df = load_published_wide(root, experiment)
+        shared_columns = [col for col in wide_df.columns if col in reference_df.columns]
+        if shared_columns:
+            validation = validate_against_reference(
+                wide_df[shared_columns],
+                reference_df[shared_columns],
+            )
+
+    figure_png_path: Path | None = None
+    if write_figures:
+        figure_png_path = plot_surprisal_figure(
+            experiment,
+            wide_df,
+            figure_dir,
+            model_order=plot_model_order,
+        )
+
+    return ExperimentRun(
+        experiment=experiment,
+        source=data_source,
+        wide_df=wide_df,
+        csv_path=csv_path,
+        long_csv_path=long_csv_path,
+        figure_png_path=figure_png_path,
+        validation=validation,
+    )
 
 
 def load_published_wide(root: Path, experiment: str) -> pd.DataFrame:
@@ -545,11 +752,23 @@ def plot_surprisal_figure(
     wide_df: pd.DataFrame,
     figure_dir: Path,
     include_roberta: bool = False,
+    model_order: Sequence[str] | None = None,
 ) -> tuple[Path, Path]:
     spec = EXPERIMENTS[experiment]
     summary = summarize_for_plot(wide_to_long(spec, wide_df))
-    models = MODEL_ORDER if include_roberta else PAPER_MODEL_ORDER
-    models = [model for model in models if model in summary["model"].unique()]
+    available_models = list(summary["model"].unique())
+    if model_order is None:
+        preferred = MODEL_ORDER if include_roberta else PAPER_MODEL_ORDER
+        models = [model for model in preferred if model in available_models]
+        models.extend(
+            model
+            for model in wide_df.columns
+            if model in available_models
+            and model not in models
+            and (include_roberta or model != "RoBERTa")
+        )
+    else:
+        models = [model for model in model_order if model in available_models]
 
     plt.rcParams["font.weight"] = "normal"
     plt.rcParams["axes.labelweight"] = "bold"
@@ -588,7 +807,7 @@ def plot_surprisal_figure(
         )
 
     ax.set_xticks(x + width * (len(spec.paper_version_order) - 1) / 2)
-    ax.set_xticklabels([MODEL_DISPLAY_NAMES[model] for model in models])
+    ax.set_xticklabels([display_name_for_model(model) for model in models])
     ax.set_ylabel("Mean surprisal", fontsize=18)
     ax.set_ylim(0, 1.0)
 
@@ -608,10 +827,8 @@ def plot_surprisal_figure(
 
     fig.tight_layout(rect=[0, 0.08, 1, 1])
 
-    prefix = f"fig{spec.figure_number}_surprisal_acl_style"
-    pdf_path = figure_dir / f"{prefix}.pdf"
+    prefix = f"fig{spec.figure_number}_surprisal"
     png_path = figure_dir / f"{prefix}.png"
-    fig.savefig(pdf_path, bbox_inches="tight")
     fig.savefig(png_path, bbox_inches="tight")
     plt.close(fig)
-    return pdf_path, png_path
+    return png_path
